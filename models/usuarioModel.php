@@ -32,8 +32,7 @@ class UsuarioModel
 
 
     // Método para autenticar a un usuario por correo y contraseña
-    public function autenticarUsuario($correo, $contrasena)
-    {
+    public function autenticarUsuario($correo, $contrasena){
         $query = "SELECT * FROM usuarios WHERE correo = ?";
         $params = array($correo);
 
@@ -45,6 +44,17 @@ class UsuarioModel
             return false;
         }
     }
+
+    // comprobrar clave
+    public function buscarPassword($idUsuario, $Contrasena){
+        $passHash = password_hash($Contrasena, PASSWORD_DEFAULT);
+
+        $query = "SELECT  usuarios SET contrasena = ? WHERE id = ?";
+        $params = array($hashNuevaContrasena, $idUsuario);
+
+        return $this->db->execute($query);
+    }
+
 
     // Método para cambiar la contraseña de un usuario
     public function cambiarContrasenaUsuario($idUsuario, $nuevaContrasena)

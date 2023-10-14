@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.container {
+    flex: 1; /* Ocupa el espacio restante vertical */
+    padding: 20px;
+}
+.loginStyle{
+    height: 50px;
+    width: 100%;
+    background-color: #FFA500;
+}
+
+body {
+    
+    background-image: url("fondo8.jpg");
+}
+  
+#login .container #login-row #login-column #login-box {
+    margin-top: 70px;
+    max-width: 600px;
+    height: 300px;
+    box-shadow: 2px 2px 2px 2px #343a40;
+    border-radius: 3px;    
+}
+  

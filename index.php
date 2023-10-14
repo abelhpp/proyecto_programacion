@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 //config para errores
 ini_set('display_errors', 1);
@@ -29,5 +30,9 @@ if (isset($_SESSION['roles_id'])) {
     header('Location: login.php');
     exit;
 }
+=======
+<?php include 'config/init.php'; ?>
+<?php include 'views/home.php'; ?>
+>>>>>>> aac8353 (se corrigió direccion de init.php)
 
 ?>

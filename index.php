@@ -1,4 +1,4 @@
-<?php include 'core/init.php'; ?>
+<?php include 'config/init.php'; ?>
 <?php include 'views/home.php'; ?>
 
 <?php

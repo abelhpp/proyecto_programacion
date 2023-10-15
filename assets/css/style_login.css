@@ -29,9 +29,13 @@ body {
 #login {
     margin-top: 70px;
     width: 600px;
-    height: 300px;
+    max-height: 600px;
     box-shadow: 2px 2px 2px 2px #343a40;
     border-radius: 3px;  
     background-color: #FFA500;  
 }
-  
+
+.row{
+    flex-wrap: nowrap;
+    flex-direction: column;
+}

@@ -4,7 +4,7 @@ const app = Vue.createApp({
             libros: [],
             librosFiltrados: [],
             librosRecientes: [],
-            chunkedLibrosRecientes: [], // Agrega esta propiedad
+            chunkedLibrosRecientes: [],
             libroBuscado: null,
             datosCargados: false,
             autores: [],
@@ -39,12 +39,13 @@ const app = Vue.createApp({
         },
         async obtenerLibros() {
             try {
-                const response = await fetch('http://localhost/Biblioteca/php/libros.php');
+                const response = await fetch('http://localhost/proyecto_programacion/controllers/libros.php');
                 const data = await response.json();
                 data.sort((a, b) => new Date(b.fecha_registro) - new Date(a.fecha_registro));
                 this.librosRecientes = data.slice(0, 8); // Obtener los 8 libros más recientes
                 // console.log(this.librosRecientes);
                 this.libros = data;
+                console.log(this.libros);
             } catch (error) {
                 console.error('Error al obtener los libros:', error);
             }
@@ -52,7 +53,7 @@ const app = Vue.createApp({
 
         async obtenerAutores() {
             try {
-                const response = await fetch('http://localhost/Biblioteca/php/autores.php');
+                const response = await fetch('http://localhost/proyecto_programacion/controllers/autores.php');
                 const data = await response.json();
                 this.autores = data;
             } catch (error) {
@@ -61,7 +62,7 @@ const app = Vue.createApp({
         },
         async obtenerGeneros() {
             try {
-                const response = await fetch('http://localhost/Biblioteca/php/generos.php');
+                const response = await fetch('http://localhost/proyecto_programacion/controllers/generos.php');
                 const data = await response.json();
                 this.generos = data;
             } catch (error) {
@@ -109,6 +110,12 @@ const app = Vue.createApp({
             const librosFiltrados = this.libros.filter(libro => libro.generos_id === generoId);
             // console.log(librosFiltrados);
             return librosFiltrados;
+        },
+        irCategoria(generoId) {
+            window.location.href = `categoria.php?generoId=${generoId}`;
+        },
+        irDetalles(libroId){
+            window.location.href = `detalles_libro.php?id=${libroId}`;
         },
 
     },

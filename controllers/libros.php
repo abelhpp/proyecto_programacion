@@ -7,12 +7,14 @@ if ($mysqli->connect_error) {
     die("Error de conexión: " . $mysqli->connect_error);
 }
 
-// Consulta SQL para obtener todos los libros
-$query = "SELECT * FROM libros";
+$query = "SELECT libros.id, nombre, foto, fecha_registro, descripcion, autores_id, generos_id, stock_libros.cantidad 
+        FROM libros 
+        INNER JOIN stock_libros ON libros.id = stock_libros.libros_id";
+
 $result = $mysqli->query($query);
 
 if ($result) {
-    // Inicializar un arreglo para almacenar los libros
+    // Inicializar un arreglo para almacenar los libros con su cantidad en stock
     $libros = array();
 
     // Obtener y almacenar los libros en un arreglo
@@ -35,5 +37,3 @@ if ($result) {
 } else {
     echo "Error en la consulta: " . $mysqli->error;
 }
-?>
-

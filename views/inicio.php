@@ -21,7 +21,7 @@
                             <h5 class="card-text">{{ buscarAutor(libro.autores_id) }}</h5>
                         </div>
                         <div>
-                            <button class="btn btn-primary">Ver Detalles</button>
+                            <button class="btn btn-primary" @click="irDetalles(libro.id)">Ver Detalles</button>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                                         <h5 class="card-text">{{ buscarAutor(libro.autores_id) }}</h5>
                                     </div>
                                     <div>
-                                        <button class="btn btn-primary">Ver Detalles</button>
+                                        <button class="btn btn-primary" @click="irDetalles(libro.id)">Ver Detalles</button>
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +70,8 @@
         <div class="container" v-if="datosCargados && generos.length > 0">
             <div class="row">
                 <div class="col-md-12" v-for="genero in generos" :key="genero.id">
-                    <h2>Libros de {{ genero.nombre }}</h2>
+                    <!-- <h2>Libros de {{ genero.nombre }}</h2> -->
+                    <h2 style="cursor: pointer;" @click="irCategoria(genero.id)">{{ 'Libros de ' + genero.nombre }}</h2>
                     <div :id="'librosCarousel-' + genero.id" class="carousel slide">
                         <div class="carousel-inner">
                             <div class="carousel-item"
@@ -86,7 +87,7 @@
                                                 <h5 class="card-text">{{ buscarAutor(libro.autores_id) }}</h5>
                                             </div>
                                             <div>
-                                                <button class="btn btn-primary">Ver Detalles</button>
+                                                <button class="btn btn-primary" @click="irDetalles(libro.id)">Ver Detalles</button>
                                             </div>
                                         </div>
                                     </div>

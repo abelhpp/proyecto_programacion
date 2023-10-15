@@ -4,10 +4,16 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    align-items: center;
 }
 .container {
-    flex: 1; /* Ocupa el espacio restante vertical */
-    padding: 20px;
+    height: 100%;
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    flex-direction: column;
 }
 .loginStyle{
     height: 50px;
@@ -17,14 +23,15 @@ body {
 
 body {
     
-    background-image: url("fondo8.jpg");
+    background-image: url('../img/fondo8.jpg');
 }
   
-#login .container #login-row #login-column #login-box {
+#login {
     margin-top: 70px;
-    max-width: 600px;
+    width: 600px;
     height: 300px;
     box-shadow: 2px 2px 2px 2px #343a40;
-    border-radius: 3px;    
+    border-radius: 3px;  
+    background-color: #FFA500;  
 }
   

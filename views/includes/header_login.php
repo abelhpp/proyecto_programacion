@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     
     <!-- alert personalizado -->
-    <link rel="stylesheet" href="plugins/sweet_alert2/sweetalert2.min.css">
-
+    <link rel="stylesheet" href="uploads/plugins/sweet_alert2/sweetalert2.min.css">
     <!-- Tu propio CSS personalizado -->
     <link rel="stylesheet" href="assets/css/style_general.css">
     <link rel="stylesheet" href="assets/css/style_login.css">

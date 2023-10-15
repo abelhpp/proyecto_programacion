@@ -30,31 +30,55 @@ class UsuarioModel
         return true;
     }
 
+    //Token crear
+    public function tokenCreate($id, $token){
+        
+        // Consulta SQL con valores incrustados
+        $query = "UPDATE usuarios SET token='$token' WHERE id=$id;";
 
-    // Método para autenticar a un usuario por correo y contraseña
-    public function autenticarUsuario($correo, $contrasena){
-        $query = "SELECT * FROM usuarios WHERE correo = ?";
-        $params = array($correo);
+        if (!$this->db->execute($query)) {
+            echo $this->db->getError();
+            throw new Exception("Error al registrar el usuario: " . $this->db->getError());
+        }
 
-        $usuario = $this->db->fetchOne($query);
+        return true;
+    }
 
-        if ($usuario && password_verify($contrasena, $usuario['contrasena'])) {
-            return $usuario;
-        } else {
+
+    //Token crear
+    public function verificarToken($id, $token){
+        
+        // Consulta SQL con valores incrustados
+        $query = "SELECT token FROM usuarios WHERE id=$id;";
+
+        $tokenDB = $this->db->fetchOne($query);
+        
+        if ($tokenDB['token'] === $token){
             return false;
         }
+
+        return true;
+        
     }
+
+
+
+
+    
 
     // comprobrar clave
-    public function buscarPassword($idUsuario, $Contrasena){
-        $passHash = password_hash($Contrasena, PASSWORD_DEFAULT);
+    public function existsEmail($usuario){
 
-        $query = "SELECT  usuarios SET contrasena = ? WHERE id = ?";
-        $params = array($hashNuevaContrasena, $idUsuario);
-
-        return $this->db->execute($query);
+        $query = "SELECT contraseña, id, roles_id FROM usuarios where email = '$usuario'";
+        $result = $this->db->fetchOne($query);
+        if ($result) {
+            return $result;    
+        }
+        echo"sin resultado";
+        return false; 
     }
 
+ 
 
     // Método para cambiar la contraseña de un usuario
     public function cambiarContrasenaUsuario($idUsuario, $nuevaContrasena)
@@ -62,7 +86,7 @@ class UsuarioModel
         $hashNuevaContrasena = password_hash($nuevaContrasena, PASSWORD_DEFAULT);
 
         $query = "UPDATE usuarios SET contrasena = ? WHERE id = ?";
-        $params = array($hashNuevaContrasena, $idUsuario);
+
 
         return $this->db->execute($query);
     }

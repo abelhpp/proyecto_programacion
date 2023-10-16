@@ -4,10 +4,4 @@ RewriteEngine On
 # Redirige a index.php si la ruta no existe como archivo o directorio
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . indexOptions -MultiViews
-RewriteEngine On
-
-# Redirige a index.php si la ruta no existe como archivo o directorio
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . index.php [L]

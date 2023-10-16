@@ -1,10 +1,73 @@
+<<<<<<< HEAD
+=======
+header, footer{
+    /* background-color: #03045e; */
+    background-color: #023e8a;
+    color: #ffffff;
+}
+
+footer{
+    margin-top: 2%;
+}
+>>>>>>> b3705aa (se agrega stilo para footer y header)
 
 body{
     background-color: #caf0f8;
 }
 
 
+<<<<<<< HEAD
 
+=======
+/* Cambiar el fondo y el color de las letras de la barra de navegación */
+.navbar {
+    background-color: #023e8a;
+    color: white;
+}
+.navbar-brand{
+    color: #ffffff;
+}
+.navbar-brand:hover{
+    color: #ffffff;
+}
+
+/* Cambiar el color de las letras de los elementos del menú principal */
+.navbar-nav .nav-link{
+    color: white;
+}
+
+/* Cambiar el color de fondo y las letras del menú desplegable */
+.dropdown-menu {
+    background-color: #023e8a;
+    color: white;
+}
+
+/* Cambiar el color de las letras de los elementos del menú desplegable */
+.dropdown-item {
+    color: white;
+}
+
+/* Cambiar el color de fondo y las letras del botón de menú desplegable */
+.dropdown-toggle::after {
+    background-color: #023e8a;
+    color: white; 
+}
+
+/* Cambiar el color de fondo y las letras de los elementos en el menú desplegable de usuario */
+.dropdown-menu#userDropdown {
+    background-color: #023e8a;
+    color: white; 
+}
+
+
+
+#redes, #contacto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+>>>>>>> b3705aa (se agrega stilo para footer y header)
 
 .card{
     display: flex;
@@ -239,4 +302,7 @@ h1{
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b3705aa (se agrega stilo para footer y header)

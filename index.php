@@ -10,6 +10,7 @@ if (isset($_SESSION['roles_id'])) {
 
     switch ($opcion) {
         case 1:
+            
             include 'views/inicio.php'; 
             break; 
         case 2:

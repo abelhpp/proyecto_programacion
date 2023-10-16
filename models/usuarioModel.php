@@ -15,16 +15,30 @@ class UsuarioModel
 
     // Método para registrar un nuevo usuario en la base de datos
 
-    public function registrarNuevoUsuario($id, $nombre, $apellido, $contrasena, $email, $fecha_registro, $fotocopia_dni, $activado, $roles_id)
+    public function registrarNuevoUsuario( $email, $name, $apellido, $dni, $password, $imagenBinaria)
     {
-        $hashContrasena = password_hash($contrasena, PASSWORD_DEFAULT);
+        //Traer id mas grande
+        $sql = "SELECT MAX(id) AS id_mas_grande FROM usuarios;";
+        $idDB = $this->db->fetchOneId($sql);
+
+
+
+        $id = $idDB + 1;
+        $activado = 0; $roles_id = 1; $token = '0';
+        echo "</br>";
+        echo $id;
+
+        $fecha_registro = date("Y-m-d");
+
+        $hashPass = password_hash($password, PASSWORD_DEFAULT);
 
         // Consulta SQL con valores incrustados
-        $query = "INSERT INTO usuarios (id, nombre, apellido, contraseña, email, fecha_registro, fotocopia_dni, activado, roles_id) VALUES ('$id', '$nombre', '$apellido', '$hashContrasena', '$email', '$fecha_registro', '$fotocopia_dni', '$activado', '$roles_id')";
-
-        if (!$this->db->execute($query)) {
-            echo $this->db->getError();
-            throw new Exception("Error al registrar el usuario: " . $this->db->getError());
+        $query = "INSERT INTO usuarios (id, nombre, apellido, email, contraseña, fecha_registro, fotocopia_dni, dni, activado, roles_id, token) 
+        VALUES($id, '$name', '$apellido', '$email', '$hashPass', '$fecha_registro', '$imagenBinaria', $dni, $activado, $roles_id, '$token')";
+        
+        $insert = $this->db->execute($query);
+        if (!$insert) {
+            echo "Error en enviar Modelo";
         }
 
         return true;
@@ -69,12 +83,11 @@ class UsuarioModel
     // comprobrar clave
     public function existsEmail($usuario){
 
-        $query = "SELECT contraseña, id, roles_id FROM usuarios where email = '$usuario'";
+        $query = "SELECT contraseña, id, roles_id FROM usuarios where email = '$usuario' AND activado = 1";
         $result = $this->db->fetchOne($query);
         if ($result) {
             return $result;    
         }
-        echo"sin resultado";
         return false; 
     }
 

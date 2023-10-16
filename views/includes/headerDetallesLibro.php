@@ -8,7 +8,7 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/style_inicio.css">
-    <title>Biblioteca</title>
+    <title>Detalles</title>
 </head>
 
 <body>
@@ -44,7 +44,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <?php echo $_SESSION['username']; ?>
+                                    Nombre de Usuario
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="userDropdown">
                                     <li><a class="dropdown-item" href="#mi-perfil">Mi Perfil</a></li>
@@ -52,7 +52,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="salir.php">Cerrar Sesión</a></li>
+                                    <li><a class="dropdown-item" href="#cerrar-sesion">Cerrar Sesión</a></li>
                                 </ul>
                             </li>
                         </ul>

@@ -44,7 +44,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <?php echo $_SESSION['username']; ?>
+                                    Nombre de Usuario
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="userDropdown">
                                     <li><a class="dropdown-item" href="#mi-perfil">Mi Perfil</a></li>
@@ -52,7 +52,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="salir.php">Cerrar Sesión</a></li>
+                                    <li><a class="dropdown-item" href="#cerrar-sesion">Cerrar Sesión</a></li>
                                 </ul>
                             </li>
                         </ul>

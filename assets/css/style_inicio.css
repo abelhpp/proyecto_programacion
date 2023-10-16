@@ -1,0 +1,297 @@
+header, footer{
+    /* background-color: #03045e; */
+    background-color: #023e8a;
+    color: #ffffff;
+}
+
+footer{
+    margin-top: 2%;
+}
+
+body{
+    background-color: #caf0f8;
+}
+
+
+/* Cambiar el fondo y el color de las letras de la barra de navegación */
+.navbar {
+    background-color: #023e8a;
+    color: white;
+}
+.navbar-brand{
+    color: #ffffff;
+}
+.navbar-brand:hover{
+    color: #ffffff;
+}
+
+/* Cambiar el color de las letras de los elementos del menú principal */
+.navbar-nav .nav-link{
+    color: white;
+}
+
+/* Cambiar el color de fondo y las letras del menú desplegable */
+.dropdown-menu {
+    background-color: #023e8a;
+    color: white;
+}
+
+/* Cambiar el color de las letras de los elementos del menú desplegable */
+.dropdown-item {
+    color: white;
+}
+
+/* Cambiar el color de fondo y las letras del botón de menú desplegable */
+.dropdown-toggle::after {
+    background-color: #023e8a;
+    color: white; 
+}
+
+/* Cambiar el color de fondo y las letras de los elementos en el menú desplegable de usuario */
+.dropdown-menu#userDropdown {
+    background-color: #023e8a;
+    color: white; 
+}
+
+
+
+#redes, #contacto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3%;
+    /* background-color: #0096c7; */
+    background-color: #e9f3f7;
+    border: 1px solid #000000;
+}
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2%;
+    background-color: bisque;
+    margin: 1% 0;
+}
+
+.card-img {
+    max-width: 100%;
+    height: auto; /* Esto mantiene la proporción de la imagen */
+}
+.card-libro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(243, 246, 249);
+    padding: 2%;
+    border-radius: 0.3rem;
+    margin-top: 2%;
+}
+
+
+/* Estilo para las flechas del carrusel */
+.carousel-control-prev, .carousel-control-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: black; */
+    background-color: #03045e;
+    color: white;
+    height: 20%;
+    width: 5%;
+    margin: auto;
+    border-radius: 5%;
+}
+
+/* Estilo para el contenedor del carrusel */
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1%;
+    margin: 1% 0;
+}
+
+#no-encontrado, #searchResults{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40vh;
+}
+
+.btn-primary{
+    color: #000000;
+}
+.btn-primary:hover{
+    color: #000000;
+}
+
+
+/* TARJETAS EN CATEGORIA PHP */
+.generos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3%;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3%;
+    background-color: #e9f3f7;
+    border: 1px solid #000000;
+    margin: 2% 0;
+}
+h1{
+    text-align: center;
+    margin: 2% 0;
+}
+.container-btn-volver{
+    margin-top: 2%;
+}
+.container-btn-volver button{
+    width: 10%;
+}
+
+
+/* DETALLE DE LIBRO */
+.card-img-detalle {
+    max-width: 100%;
+    height: 50vh;
+    background-color: red;
+}
+.libro-container{
+    display: flex;
+    justify-content: center;
+}
+
+.libro-detalle{
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    background-color: #e9f3f7;
+    border: 1px solid #000000;
+    margin: 2% 0;
+    border-radius: 0.3rem;
+}
+.foto-container-detalle{
+    display: flex;
+    justify-content: center;
+}
+
+.container-btn-reservar{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-reservar{
+    width: 60%;
+}
+
+.card-body-detalles{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80%;
+}
+#libro-detalles-col2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ESTILOS PARA EL MODAL */
+/* Estilos para el fondo oscuro cuando el modal está abierto */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos generales para el contenido del modal */
+.modal-content {
+    border: 2px solid #007bff; /* Borde azul */
+    border-radius: 8px;
+}
+
+/* Estilos para el título del modal */
+.modal-title {
+    font-size: 24px;
+    color: #007bff; /* Texto azul */
+}
+
+/* Estilos para el botón de cierre (X) del modal */
+.modal-header .btn-close {
+    color: #007bff; /* Color azul */
+    font-size: 24px;
+}
+
+/* Estilos para el cuerpo del modal */
+.modal-body {
+    font-size: 18px;
+}
+#botones-modal{
+    display: flex;
+    justify-content: center;
+    margin: 2% 0;
+}
+/* Estilos para el botón "Aceptar" */
+.btn-modal {
+    background-color: #007bff; /* Fondo azul */
+    color: #fff; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100%;
+}
+
+/* Cambiar el color del botón "Aceptar" cuando se pasa el ratón por encima */
+.btn-modal:hover {
+    background-color: #0056b3; /* Cambiar a un tono más oscuro de azul */
+}
+
+/* MIS PRESTAMOS */
+.prestamo-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2%;
+}
+
+.prestamo-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1%;
+    background-color: #e9f3f7;
+    border: 1px solid #000000;
+    margin: 2% 0;
+    border-radius: 0.3rem;
+
+}
+.prestamo-card h2{
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+

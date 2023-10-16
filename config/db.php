@@ -57,6 +57,7 @@ class Database
         }
     }
 
+<<<<<<< HEAD
     public function fetchOneId($sql)
     {
         try {
@@ -72,6 +73,30 @@ class Database
         }
     }
 
+=======
+    //Método para traer todos los resultados.
+
+    public function fetchAll($sql){
+
+        $result = $this->execute($sql);
+        if($result){
+            $datos = array();
+            while($fila = mysqli_fetch_assoc($result)){
+                $datos[]=$fila;
+            }
+            //liberamos espacio de la memoria
+            mysqli_free_result($result);
+
+            //devolvemos los datos
+            return $datos;
+        }else{
+            echo "error al buscar datos". mysqli_connect_error();
+            return null;
+        }
+        
+    }
+    
+>>>>>>> ba2507e (se agrega funcion de FetchAll para traer todos los)
     public function __destruct()
     {
         $this->cerrarConexion();

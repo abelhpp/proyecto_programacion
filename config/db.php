@@ -33,6 +33,28 @@ class Database
         $result = $this->execute($sql);
         return $result->fetch_assoc();
     }
+
+    //Método para traer todos los resultados.
+
+    public function fetchAll($sql){
+
+        $result = $this->execute($sql);
+        if($result){
+            $datos = array();
+            while($fila = mysqli_fetch_assoc($result)){
+                $datos[]=$fila;
+            }
+            //liberamos espacio de la memoria
+            mysqli_free_result($result);
+
+            //devolvemos los datos
+            return $datos;
+        }else{
+            echo "error al buscar datos". mysqli_connect_error();
+            return null;
+        }
+        
+    }
     
     public function __destruct()
     {

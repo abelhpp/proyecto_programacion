@@ -1,8 +1,6 @@
 <?php
 
 
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //Importo model
     require_once 'models/usuarioModel.php';
@@ -14,9 +12,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     //Si existe email devuelve pass
     $infoDb = $usuarioModel->existsEmail($username);
+        
+    
     if ($infoDb){
-
-        if ($infoDb["contraseña"] === $password) {
+        
+        if (password_verify($password, $infoDb["contraseña"])) {
             // Iniciar la sesión (si aún no está iniciada)
             $_SESSION["username"] = $username;
             $_SESSION["roles_id"] = $infoDb["roles_id"];

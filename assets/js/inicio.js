@@ -39,7 +39,8 @@ const app = Vue.createApp({
         },
         async obtenerLibros() {
             try {
-                const response = await fetch('http://localhost/proyecto_programacion/controllers/libros.php');
+                const APIuno = 1;
+                const response = await fetch(`http://localhost/proyecto_programacion/librosAPI.php?APIs=${APIuno}`);
                 const data = await response.json();
                 data.sort((a, b) => new Date(b.fecha_registro) - new Date(a.fecha_registro));
                 this.librosRecientes = data.slice(0, 8); // Obtener los 8 libros más recientes
@@ -53,7 +54,8 @@ const app = Vue.createApp({
 
         async obtenerAutores() {
             try {
-                const response = await fetch('http://localhost/proyecto_programacion/controllers/autores.php');
+                const APIdos = 2;
+                const response = await fetch(`http://localhost/proyecto_programacion/librosAPI.php?APIs=${APIdos}`);
                 const data = await response.json();
                 this.autores = data;
             } catch (error) {
@@ -62,7 +64,8 @@ const app = Vue.createApp({
         },
         async obtenerGeneros() {
             try {
-                const response = await fetch('http://localhost/proyecto_programacion/controllers/generos.php');
+                const APItres = 3;
+                const response = await fetch(`http://localhost/proyecto_programacion/librosAPI.php?APIs=${APItres}`);
                 const data = await response.json();
                 this.generos = data;
             } catch (error) {
@@ -126,6 +129,3 @@ const app = Vue.createApp({
 });
 
 app.mount('#app');
-
-
-

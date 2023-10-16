@@ -14,6 +14,5 @@ if (isset($_SESSION['roles_id'])){
     exit;
 }else{
     require_once 'controllers/loginController.php';
-    include 'views/login.php'; 
-   
+    include 'views/login.php';   
 }

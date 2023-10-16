@@ -1,27 +1,18 @@
 <?php
-// Conexión a la base de datos utilizando mysqli
-$mysqli = new mysqli("localhost", "root", "", "biblioteca");
+//Importar model
+require_once 'models/socioModel.php';
+$socioModel = new SocioModel();
 
-// Verificar la conexión
-if ($mysqli->connect_error) {
-    die("Error de conexión: " . $mysqli->connect_error);
-}
+//Ejecuta consulta
+$result = $socioModel->getGeneros();
 
-// Consulta SQL para obtener todos los géneros
-$query = "SELECT * FROM generos";
-$result = $mysqli->query($query);
 
 if ($result) {
     // Obtener y mostrar los géneros en formato JSON
     $generos = $result->fetch_all(MYSQLI_ASSOC);
+    header('Content-Type: application/json');
     echo json_encode($generos);
 
-    // Liberar el resultado
-    $result->free();
 } else {
     echo json_encode(['error' => 'Error en la consulta: ' . $mysqli->error]);
 }
-
-// Cerrar la conexión
-$mysqli->close();
-?>

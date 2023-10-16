@@ -21,8 +21,6 @@ class UsuarioModel
         $sql = "SELECT MAX(id) AS id_mas_grande FROM usuarios;";
         $idDB = $this->db->fetchOneId($sql);
 
-
-
         $id = $idDB + 1;
         $activado = 0; $roles_id = 1; $token = '0';
         echo "</br>";
@@ -74,6 +72,13 @@ class UsuarioModel
         return true;
         
     }
+
+
+
+
+
+    
+
 
 
 

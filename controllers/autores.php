@@ -1,27 +1,14 @@
 <?php
-// Conexión a la base de datos utilizando mysqli
-$mysqli = new mysqli("localhost", "root", "", "biblioteca");
 
-// Verificar la conexión
-if ($mysqli->connect_error) {
-    die("Error de conexión: " . $mysqli->connect_error);
-}
+//Importar model
+require_once 'models/socioModel.php';
+$socioModel = new SocioModel();
 
-// Consulta SQL para obtener todos los autores
-$query = "SELECT * FROM autores";
-$result = $mysqli->query($query);
+//Ejecuta consulta
+$result = $socioModel->getAutores();
 
-if ($result) {
-    // Obtener y mostrar los autores en formato JSON
-    $autores = $result->fetch_all(MYSQLI_ASSOC);
-    echo json_encode($autores);
 
-    // Liberar el resultado
-    $result->free();
-} else {
-    echo json_encode(['error' => 'Error en la consulta: ' . $mysqli->error]);
-}
+$autores = $result->fetch_all(MYSQLI_ASSOC);
+header('Content-Type: application/json');
+echo json_encode($autores);
 
-// Cerrar la conexión
-$mysqli->close();
-?>

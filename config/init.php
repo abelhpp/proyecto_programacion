@@ -1,11 +1,6 @@
 <?php
 
 
-// Iniciar la sesión (si aún no está iniciada)
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
 // Definir rutas y URLs base
 define('BASE_URL', 'http://localhost/biblioteca/'); // Reemplaza con la URL de tu aplicación
 define('BASE_PATH', __DIR__);

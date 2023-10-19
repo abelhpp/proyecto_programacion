@@ -39,7 +39,7 @@
                         <h5 class="card-text" v-if="libro.descripcion">Descripción: {{ libro.descripcion }}</h5>
                     </div>
                     <div class="container-btn-reservar">
-                        <button class="btn btn-primary btn-reservar" @click="reservar(libro.id, 1)" :disabled="parseInt(libro.cantidad) === 0">Reservar</button>
+                        <button class="btn btn-primary btn-reservar" @click="reservar(libro.id, 1)" :disabled="parseInt(libro.cantidad) === 0 || prestar == false">Reservar</button>
                     </div>
                 </div>
             </div>

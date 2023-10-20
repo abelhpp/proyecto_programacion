@@ -48,11 +48,11 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="userDropdown">
                                     <li><a class="dropdown-item" href="#mi-perfil">Mi Perfil</a></li>
-                                    <li><a class="dropdown-item" href="mis_prestamos.php">Mis Prestamos</a></li>
+                                    <li><a class="dropdown-item" href="Activar.php">Activar</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="salir.php">Cerrar Sesión</a></li>
+                                    <li><a class="dropdown-item" href="../salir.php">Cerrar Sesión</a></li>
                                 </ul>
                             </li>
                         </ul>

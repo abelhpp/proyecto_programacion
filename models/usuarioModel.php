@@ -17,22 +17,17 @@ class UsuarioModel
 
     public function registrarNuevoUsuario( $email, $name, $apellido, $dni, $password, $imagenBinaria)
     {
-        //Traer id mas grande
-        $sql = "SELECT MAX(id) AS id_mas_grande FROM usuarios;";
-        $idDB = $this->db->fetchOneId($sql);
-
-        $id = $idDB + 1;
+        
+        //Activado 0   roles 1    token 0
         $activado = 0; $roles_id = 1; $token = '0';
-        echo "</br>";
-        echo $id;
-
+        
         $fecha_registro = date("Y-m-d");
 
         $hashPass = password_hash($password, PASSWORD_DEFAULT);
 
         // Consulta SQL con valores incrustados
-        $query = "INSERT INTO usuarios (id, nombre, apellido, email, contraseña, fecha_registro, fotocopia_dni, dni, activado, roles_id, token) 
-        VALUES($id, '$name', '$apellido', '$email', '$hashPass', '$fecha_registro', '$imagenBinaria', $dni, $activado, $roles_id, '$token')";
+        $query = "INSERT INTO usuarios (nombre, apellido, email, contraseña, fecha_registro, fotocopia_dni, dni, activado, roles_id, token) 
+        VALUES('$name', '$apellido', '$email', '$hashPass', '$fecha_registro', '$imagenBinaria', $dni, $activado, $roles_id, '$token')";
         
         $insert = $this->db->execute($query);
         if (!$insert) {
@@ -54,6 +49,22 @@ class UsuarioModel
         }
 
         return true;
+    }
+
+
+    //Verificar email en la db
+    public function verificaEmail($email){
+        // Consulta SQL para verificar si el email existe en la tabla usuarios
+        $query = "SELECT email FROM usuarios WHERE email = '$email';";
+        $result = $this->db->execute($query);
+    
+        // Verificar si se encontró un registro
+        if ($result->num_rows > 0) {
+            // Se encontró un registro con el email especificado, entonces retorna true
+            return true;
+        }
+        // No se encontró ningún registro con el email especificado, retorna false
+        return false;
     }
 
 

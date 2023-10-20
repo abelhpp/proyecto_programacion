@@ -4,11 +4,11 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require_once 'controllers/registrarseController.php';
 ?>
-<?php include 'views/includes/headerInicio.php'; ?>
-    <div class="container">
+<?php include 'views/includes/headerReg.php'; ?>
+    <div class="container main">
     <p class="fs-2 text-center">Registro Nuevo socio</p>
     
-    <form method="POST" action="registrarse.php" enctype="multipart/form-data">
+    <form method="POST" onsubmit="return validarFormulario();" action="registrarse.php" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="email" class="form-label">Correo Electrónico</label>
         <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
@@ -33,10 +33,17 @@ require_once 'controllers/registrarseController.php';
         <label for="formFile" class="form-label">Frente del DNI</label>
         <input class="form-control" type="file" id="formFile" name="dni_front" required>
     </div>
-    <button type="submit" class="btn btn-primary">Registrarse</button>
+    <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <a href="login.php" class="btn btn-secondary">VOLVER</a>
+    </div>
 </form>
     </div>
-</body>
-</html>
+    
+<?php    
+    if (isset($error_message)) {
+        include 'views/partials/alertReg.php';
+    }
+?>
 
-<?php include 'views/includes/footerInicio.php'; ?>
+<?php include 'views/includes/footerReg.php'; ?>

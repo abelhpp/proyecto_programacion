@@ -14,7 +14,9 @@
                     <p><strong>Fecha de Préstamo:</strong> {{ prestamo.fecha_prestamo }}</p>
                     <p><strong>Fecha de Vencimiento:</strong> {{ prestamo.fecha_vencimiento }}</p>
                     <p><strong>Autor:</strong> {{ prestamo.nombre_autor }}</p>
-                    <p><strong>Retirado:</strong> {{ prestamo.fue_retirado === 1 ? 'Sí' : 'No' }}</p>
+                    <!-- <p><strong>Retirado:</strong> {{ prestamo.fue_retirado === 1 ? 'Sí' : 'No' }}</p> -->
+                    <p><strong>Retirado:</strong> {{ prestamo.fue_retirado === 1 ? 'Sí' : (prestamo.fue_retirado === 0 ? 'No' : 'En espera') }}</p>
+
                 </div>
             </div>
 

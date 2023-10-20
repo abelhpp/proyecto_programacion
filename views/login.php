@@ -8,7 +8,7 @@
         <form class="form" action="login.php" method="post">
             <h3 class="text-center text-dark">Inicio de Sesión</h3>
             <div class="form-group">
-                <label for="usuario" class="text-dark">Usuario</label><br>
+                <label for="usuario" class="text-dark">Correo</label><br>
                 <input type="text" name="username" id="usuario" class="form-control" autocomplete="off">
             </div>
             <div class="form-group">

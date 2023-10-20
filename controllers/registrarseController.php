@@ -6,7 +6,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once 'models/usuarioModel.php';
     $usuarioModel = new UsuarioModel();
     
-    // recibo datos
+
+    $email = $_POST["email"];
+    //Primero ver que el correo no esta registrado
+    $email = $_POST["email"];
     // Ruta temporal de la imagen
     $imagenTemporal = $_FILES["dni_front"]["tmp_name"];
     // Convertir la imagen en datos binarios
@@ -18,15 +21,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $apellido = $_POST["apellido"];
     $dni = $_POST["dni"];
     $password = $_POST["password"];
+
+
+
+
+    if($usuarioModel->verificaEmail($email)){
+        $error_message = "El correo ingresado, ya se encuentra registrado en nuestra.";
+    }else{
+    //envios
+    $error_message = "Registrado con exito, en las proximas 48hs su cuenta sera validada";
+    $infoDb = $usuarioModel->registrarNuevoUsuario($email, $name, $apellido, $dni, $password, $imagenBinaria);
+    }
     
 
-    //validaciones
-
-
     //envios
-    $infoDb = $usuarioModel->registrarNuevoUsuario($email, $name, $apellido, $dni, $password, $imagenBinaria);
-    //header("Location: index.php");
-    //exit(); // Asegura que el script se detenga después de redirigir
-
+    //$infoDb = $usuarioModel->registrarNuevoUsuario($email, $name, $apellido, $dni, $password, $imagenBinaria);
+    
 }
 ?>

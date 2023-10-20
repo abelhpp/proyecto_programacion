@@ -18,7 +18,7 @@ class activarModel
     public function getSocios(){
         // Consulta SQL con valores incrustados
 
-        $sql = "SELECT nombre, apellido, email, fotocopia_dni AS dni_img, activado AS activo, id 
+        $sql = "SELECT nombre, apellido, email, fotocopia_dni AS dni_img, activado AS activo, id, 	fecha_registro AS fecha  
         FROM usuarios 
         WHERE roles_id = 1";
         $query = $this->db->execute($sql);

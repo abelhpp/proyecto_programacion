@@ -7,7 +7,6 @@ if ($mysqli->connect_error) {
     die("Error de conexión: " . $mysqli->connect_error);
 }
 
-// Función para realizar un nuevo préstamo (POST)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtener datos enviados en formato JSON
     $json = file_get_contents('php://input');
@@ -15,24 +14,59 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $libro_id = $data['libros_id'];
     $usuario_id = $data['usuarios_id'];
 
-    // Insertar el nuevo préstamo en la tabla "prestamos"
-    $query = "INSERT INTO prestamos (usuarios_id, libros_id)
-            VALUES (?, ?)";
+    // Iniciar una transacción
+    $mysqli->begin_transaction();
 
-    if ($stmt = $mysqli->prepare($query)) {
-        $stmt->bind_param("ii", $usuario_id, $libro_id);
-
-        if ($stmt->execute()) {
-            echo "Nuevo préstamo insertado exitosamente.";
-        } else {
-            echo "Error al insertar el préstamo: " . $stmt->error;
-        }
-
+    // Obtener el ID de stock_libros correspondiente al libro_id
+    $stock_id_query = "SELECT id FROM stock_libros WHERE libros_id = ?";
+    if ($stmt = $mysqli->prepare($stock_id_query)) {
+        $stmt->bind_param("i", $libro_id);
+        $stmt->execute();
+        $stmt->bind_result($stock_id);
+        $stmt->fetch();
         $stmt->close();
+
+        // Verificar si se encontró un registro en stock_libros
+        if ($stock_id !== null) {
+            // Insertar el nuevo préstamo en la tabla "prestamos"
+            $insert_query = "INSERT INTO prestamos (usuarios_id, libros_id) VALUES (?, ?)";
+            if ($stmt = $mysqli->prepare($insert_query)) {
+                $stmt->bind_param("ii", $usuario_id, $libro_id);
+
+                if ($stmt->execute()) {
+                    // Restar 1 al stock de libros
+                    $update_query = "UPDATE stock_libros SET cantidad = cantidad - 1 WHERE id = ?";
+                    if ($stmt = $mysqli->prepare($update_query)) {
+                        $stmt->bind_param("i", $stock_id);
+                        if ($stmt->execute()) {
+                            echo "Nuevo préstamo insertado y stock actualizado con éxito.";
+                        } else {
+                            echo "Error al actualizar el stock: " . $stmt->error;
+                        }
+                    } else {
+                        echo "Error en la consulta de actualización: " . $mysqli->error;
+                    }
+                } else {
+                    echo "Error al insertar el préstamo: " . $stmt->error;
+                }
+            } else {
+                echo "Error en la consulta de préstamo: " . $mysqli->error;
+            }
+        } else {
+            echo "No se encontró un registro en stock_libros para el libro especificado.";
+        }
     } else {
-        echo "Error en la consulta: " . $mysqli->error;
+        echo "Error en la consulta de stock_id: " . $mysqli->error;
     }
+
+    // Finalizar la transacción
+    $mysqli->commit();
 }
+
+
+
+
+
 
 // Función para obtener los préstamos de un usuario con detalles de libro y autor (GET)
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -40,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $usuario_id = 1; // Reemplaza esto con el ID del usuario que deseas consultar
 
     // Consulta SQL para obtener los préstamos de un usuario con detalles del libro y el autor
-    $query = "SELECT prestamos.id, prestamos.fecha_prestamo, prestamos.fecha_vencimiento, prestamos.fue_retirado, libros.nombre AS nombre_libro, autores.nombre AS nombre_autor
+    $query = "SELECT prestamos.id, prestamos.fecha_prestamo, prestamos.fecha_vencimiento, prestamos.fue_retirado, prestamos.libros_id, libros.nombre AS nombre_libro, autores.nombre AS nombre_autor
             FROM prestamos
             INNER JOIN libros ON prestamos.libros_id = libros.id
             INNER JOIN autores ON libros.autores_id = autores.id
@@ -80,4 +114,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 // Cerrar la conexión
 $mysqli->close();
-

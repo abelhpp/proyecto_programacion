@@ -14,7 +14,7 @@ if (isset($_SESSION['roles_id'])) {
             include 'views/inicio.php'; 
             break; 
         case 2:
-            echo "Usuario tipo 2";
+            header('Location: biblioteca/inicio.php');
             break;
         case 3:
             echo "Usuario tipo 3";

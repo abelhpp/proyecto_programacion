@@ -27,7 +27,7 @@ const app = Vue.createApp({
             generosDropdown.classList.toggle("show");
         },
         irInicio(){
-            window.location.href = 'inicio.php';
+            window.location.href = 'index.php';
         },
         irMisPrestamos(){
             window.location.href = 'mis_prestamos.php';

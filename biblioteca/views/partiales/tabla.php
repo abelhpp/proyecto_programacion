@@ -7,18 +7,20 @@
                         <th>Apellido</th>
                         <th>Correo</th>
                         <th>Imagen</th>
+                        <th>fecha</th>
                         <th class="text-center">Acciones</th>';
         echo '</tr>';
 if (mysqli_num_rows($resultado) > 0) {    
     while ($fila = mysqli_fetch_assoc($resultado)) {
         // Convierte la imagen en base64 para mostrarla en la etiqueta img
         $imagenBase64 = base64_encode($fila['dni_img']);
+         // Formatea la fecha
+        $fechaFormateada = date('d-m-Y', strtotime($fila['fecha']));
         echo '<tr>';
         echo "<td>{$fila['nombre']}</td>";
         echo "<td>{$fila['apellido']}</td>";
         echo "<td>{$fila['email']}</td>";
-        
-        
+        echo "<td>{$fechaFormateada}</td>";
         
         
         echo '<td><div class="imgDiv" style="width: 100%;">';

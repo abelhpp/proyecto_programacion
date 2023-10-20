@@ -296,3 +296,135 @@ h1{
 
 
 
+header, footer{
+    /* background-color: #03045e; */
+    background-color: #023e8a;
+    color: #ffffff;
+}
+
+body{
+    background-color: #caf0f8;
+}
+
+
+/* Cambiar el fondo y el color de las letras de la barra de navegación */
+.navbar {
+    background-color: #023e8a;
+    color: white;
+}
+.navbar-brand{
+    color: #ffffff;
+}
+.navbar-brand:hover{
+    color: #ffffff;
+}
+
+/* Cambiar el color de las letras de los elementos del menú principal */
+.navbar-nav .nav-link{
+    color: white;
+}
+
+/* Cambiar el color de fondo y las letras del menú desplegable */
+.dropdown-menu {
+    background-color: #023e8a;
+    color: white;
+}
+
+/* Cambiar el color de las letras de los elementos del menú desplegable */
+.dropdown-item {
+    color: white;
+}
+
+/* Cambiar el color de fondo y las letras del botón de menú desplegable */
+.dropdown-toggle::after {
+    background-color: #023e8a;
+    color: white; 
+}
+
+/* Cambiar el color de fondo y las letras de los elementos en el menú desplegable de usuario */
+.dropdown-menu#userDropdown {
+    background-color: #023e8a;
+    color: white; 
+}
+
+
+
+#redes, #contacto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3%;
+    /* background-color: #0096c7; */
+    background-color: #e9f3f7;
+}
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2%;
+    background-color: bisque;
+    margin: 1% 0;
+}
+
+.card-img {
+    max-width: 100%;
+    height: auto; /* Esto mantiene la proporción de la imagen */
+}
+.card-libro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(243, 246, 249);
+    padding: 2%;
+    border-radius: 0.3rem;
+    margin-top: 2%;
+}
+
+
+/* Estilo para las flechas del carrusel */
+.carousel-control-prev, .carousel-control-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: black; */
+    background-color: #03045e;
+    color: white;
+    height: 20%;
+    width: 5%;
+    margin: auto;
+    border-radius: 5%;
+}
+
+/* Estilo para el contenedor del carrusel */
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1%;
+    margin: 1% 0;
+}
+
+#no-encontrado, #searchResults{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40vh;
+}
+
+.btn-primary{
+    color: #000000;
+}
+.btn-primary:hover{
+    color: #000000;
+}

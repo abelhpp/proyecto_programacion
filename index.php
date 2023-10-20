@@ -10,14 +10,14 @@ if (isset($_SESSION['roles_id'])) {
 
     switch ($opcion) {
         case 1:
-            
             include 'views/inicio.php'; 
             break; 
         case 2:
             echo "Usuario tipo 2";
             break;
         case 3:
-            echo "Usuario tipo 3";
+            // echo "Usuario tipo 3";
+            include "views/inicio.php";
             break;
         default:
             header('Location: login.php');

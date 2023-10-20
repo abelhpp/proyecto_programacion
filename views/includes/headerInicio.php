@@ -13,7 +13,8 @@
 
 <body>
     <div id="app">
-        <header>
+        <?php include("header_general.php"); ?>
+        <!-- <header>
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
                     <a class="navbar-brand" href="/proyecto_programacion/inicio.php">Biblioteca</a>
@@ -34,17 +35,20 @@
                                 </a>
                                 <ul class="dropdown-menu" id="generos-dropdown">
                                     <li v-for="genero in generos" :key="genero.id">
-                                        <a class="dropdown-item" :href="'#librosCarousel-' + genero.id">{{ genero.nombre }}</a>
+                                        <a class="dropdown-item" :href="'#librosCarousel-' + genero.id">{{ genero.nombre
+                                            }}</a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
-    
+
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <?php echo $_SESSION['username']; ?>
+                                    <?php 
+                                    // echo $_SESSION['username']; 
+                                    ?>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="userDropdown">
                                     <li><a class="dropdown-item" href="#mi-perfil">Mi Perfil</a></li>
@@ -59,4 +63,4 @@
                     </div>
                 </div>
             </nav>
-        </header>
+        </header> -->

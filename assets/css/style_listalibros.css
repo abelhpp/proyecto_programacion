@@ -1,0 +1,10 @@
+/* agregado para intentar barra lateral a la tabla.(en proceso) */
+.table-fixed tbody{
+    height: 230px;
+    overflow-y: auto;
+    width: 100%;
+}
+.table-fixed tbody td,
+.table-fixed thead > tr > th{
+    border-bottom-width: 10;
+}

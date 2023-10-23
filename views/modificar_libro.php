@@ -1,20 +1,11 @@
-<?php
-    //config para errores
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-    //Control se session
-    require_once 'controllers/sessions/sessionController.php';
 
 
-    //Es el titilo del html 
-    $style = 'href="./assets/css/style_inicio.css"';
-    $title = "Lista de libros";
-    $script = '<script src="assets/js/altalibro.js"></script>';
-    $generoButton = "";
-    include('views/includes/headerGeneral.php'); 
-?>
 
+
+
+
+<script src="./assets/js/altalibro.js"></script>
+<?php include("includes/header_modificarlibro.php");?>
 
 <div class="container mt-5">
         <div class="row justify-content-center">
@@ -73,7 +64,7 @@
                     </div>
                 
                     <button type="submit" class="btn btn-primary mt-2">Guardar Cambios</button>
-                    <a class="btn btn-secondary  mt-2" href="lista.php">Cancelar</a>
+                    <a class="btn btn-secondary  mt-2" href="listalibros.php">Cancelar</a>
 
                 </form>
             </div>

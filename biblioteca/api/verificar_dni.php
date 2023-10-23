@@ -26,6 +26,7 @@ if ($result->num_rows > 0) {
         "existe" => true,
         "usuario" => $row
     );
+    
 } else {
     // El DNI no existe en la base de datos
     $response = array(

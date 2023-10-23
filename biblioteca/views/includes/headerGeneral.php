@@ -8,6 +8,7 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/style_general.css">
+<?php echo $script;                                                              ?>    
     <link rel="stylesheet" <?php echo $style;?> >
     <title><?php echo $title; ?></title>
 </head>
@@ -45,15 +46,30 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <?php echo $_SESSION['username']; ?>
+                                    <?php
+                                        $rol = $_SESSION['roles_id']; 
+                                        echo $_SESSION['username']; 
+                                    ?>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="userDropdown">
                                     <li><a class="dropdown-item" href="#mi-perfil">Mi Perfil</a></li>
-                                    <li><a class="dropdown-item" href="mis_prestamos.php">Mis Prestamos</a></li>
+                                    <?php
+                                        // Botones específicos para Bibliotecarios y Superusuarios
+                                        if ($rol == 2 || $rol == 3) {
+                                            echo '<li class="dropdown-item"><a class="nav-link" href="x.php">Registro de Alumnos</a></li>';
+                                            echo '<li class="dropdown-item"><a class="nav-link" href="x.php">Registro de Bibliotecario</a></li>';
+                                            echo '<li class="dropdown-item"><a class="nav-link" href="listalibros.php">Todos los Libros</a></li>';
+                                            echo '<li class="dropdown-item"><a class="nav-link" href="x.php">Reservas de Alumnos</a></li>';
+                                        } else{
+                                            echo '<li><a class="dropdown-item" href="mis_prestamos.php">Mis Prestamos</a></li>';
+                                        } 
+                                    ?>
+                                    
+                
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="salir.php">Cerrar Sesión</a></li>
+                                    <li><a class="dropdown-item" href="../salir.php">Cerrar Sesión</a></li>
                                 </ul>
                             </li>
                         </ul>

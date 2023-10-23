@@ -1,4 +1,11 @@
-<?php include 'views/includes/headerMisPrestamos.php'; ?>
+
+
+<!-- Es el titilo del html -->
+<?php $style = 'href="./assets/css/style_inicio.css"'; ?>
+<?php $title = "Inicio para socios"?>
+<?php $generoButton = "disabled"?>
+
+<?php include 'views/includes/headerGeneral.php'; ?>
 
 <div class="container">
     <div class="col-12 container-btn-volver">
@@ -26,6 +33,6 @@
 
 
 
-</div>
+
 
 <?php include 'views/includes/footerMisPrestamos.php'; ?>

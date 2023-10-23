@@ -1,4 +1,9 @@
-<?php include 'views/includes/headerInicio.php'; ?>
+<!-- Es el titilo del html -->
+<?php $style = 'href="./assets/css/style_inicio.css"'; ?>
+<?php $title = "Inicio para socios"?>
+
+
+<?php include 'views/includes/headerGeneral.php'; ?>
 <div class="container mt-3">
             <div class="row">
                 <div class="input-group mb-3">

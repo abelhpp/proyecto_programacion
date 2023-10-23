@@ -1,1 +1,8 @@
-<?php include 'views/detalles_libro.php'; ?>
+<?php 
+    //config para errores
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    require_once "controllers/sessions/sessionController.php";
+    include 'views/detalles_libro.php'; 
+?>

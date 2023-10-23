@@ -7,6 +7,15 @@ require_once 'config/db.php';
 class UsuarioModel
 {
     private $db;
+    private $result;
+    private $usuario;
+    private $roles_id;
+    private $id;
+    private $ultimo_acceso;
+
+    
+
+
 
     public function __construct()
     {
@@ -59,11 +68,9 @@ class UsuarioModel
         $result = $this->db->execute($query);
     
         // Verificar si se encontró un registro
-        if ($result->num_rows > 0) {
-            // Se encontró un registro con el email especificado, entonces retorna true
+        if ($result->num_rows > 0) {   
             return true;
         }
-        // No se encontró ningún registro con el email especificado, retorna false
         return false;
     }
 
@@ -100,14 +107,42 @@ class UsuarioModel
     public function existsEmail($usuario){
 
         $query = "SELECT contraseña, id, roles_id FROM usuarios where email = '$usuario' AND activado = 1";
-        $result = $this->db->fetchOne($query);
-        if ($result) {
-            return $result;    
+        $this->result = $this->db->fetchOne($query);
+        if ($this->result) {
+            return true;   
         }
         return false; 
     }
+    //Valida password
+    public function password_validate($password){
+        if (password_verify($password, $this->result["contraseña"])){
+            
 
+            
+            return true;
+        }else{
+            return false;
+        }
+    }
  
+    //crear sessiones
+    public function create_sessiones($usuario){
+        // Iniciar la sesión (si aún no está iniciada)
+        session_start();
+        $_SESSION['username'] = $usuario;
+        $_SESSION['roles_id'] = $this->result["roles_id"];
+        $_SESSION['id'] = $this->result["id"];
+        $_SESSION['ultimo_acceso'] = time();
+        
+        $uniqueValue = uniqid();
+        // Hashea el valor único para crear el token
+        $token = password_hash($uniqueValue, PASSWORD_DEFAULT);
+        
+        $this->tokenCreate($_SESSION["id"], $token);
+    
+        $_SESSION["token"] = $token;
+    }
+
 
     // Método para cambiar la contraseña de un usuario
     public function cambiarContrasenaUsuario($idUsuario, $nuevaContrasena)

@@ -1,4 +1,10 @@
-<?php include 'views/includes/headerDetallesLibro.php'; ?>
+<!-- Es el titilo del html -->
+<?php $style = 'href="./assets/css/style_inicio.css"'; ?>
+<?php $title = "Detalle de libro"?>
+<?php $generoButton = "disabled"?>
+<!-- header General -->
+<?php include 'views/includes/headerGeneral.php'; ?>
+
 
 <!-- Modal -->
 <div class="modal fade" id="prestamoModal" tabindex="-1" aria-labelledby="prestamoModal" aria-hidden="true">

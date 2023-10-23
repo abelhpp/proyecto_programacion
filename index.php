@@ -1,16 +1,18 @@
 <?php 
+//config para errores
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-$session_lifetime = 1800; // 30 minutos en segundos
-ini_set('session.gc_maxlifetime', $session_lifetime);
-session_start();
+//Control se session
+require_once 'controllers/sessions/sessionController.php';
 
 
 if (isset($_SESSION['roles_id'])) {
     $opcion = (int)$_SESSION["roles_id"]; 
 
     switch ($opcion) {
-        case 1:
-            
+        case 1:            
             include 'views/inicio.php'; 
             break; 
         case 2:
@@ -27,4 +29,5 @@ if (isset($_SESSION['roles_id'])) {
     header('Location: login.php');
     exit;
 }
+
 ?>

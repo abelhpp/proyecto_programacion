@@ -33,8 +33,27 @@ class Database
         // Puedes registrar el error o manejarlo de otra manera adecuada
         throw $e; // Relanza la excepción para que se maneje en un nivel superior
     }
+<<<<<<< HEAD
 }
 
+=======
+    
+    //Método para preparar y ejecutar consulta SQL retornando num. row afectadas.(en proceso)
+    public function executeAndInform($sql){
+
+        $this->conexion->query($sql);
+        $filas = $this->conexion->affected_rows;
+        if($filas ===true){
+            $inform = "se modificó exitosamente"; 
+            return $inform;
+        }else{
+            $inform = "no se modifico ningun dato";
+            return $inform;
+
+        }
+
+    }
+>>>>>>> 7ea9bd5 (se agrega funcion adicional)
 
     public function getError()
     {

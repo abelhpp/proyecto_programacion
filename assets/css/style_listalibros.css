@@ -1,10 +1,23 @@
-/* agregado para intentar barra lateral a la tabla.(en proceso) */
-.table-fixed tbody{
-    height: 230px;
-    overflow-y: auto;
-    width: 100%;
+/* css para Modal_details.php */
+.col{
+    padding: 0;
 }
-.table-fixed tbody td,
-.table-fixed thead > tr > th{
-    border-bottom-width: 10;
+.form-group{
+    width: 340px;
+    border-radius: 15px;
+    padding: 20px 5px;
+    background: rgb(235, 236, 236);
+}
+.form-group label{
+    font-size: 25px;
+}
+.form-group input{
+    width: 300px;
+}
+#botonCerrar{
+    margin-top: 10px;
+}
+/* css para listResUsuarios.php */
+#filatabla{
+    width: 300px;
 }

@@ -12,7 +12,7 @@
 ?>
 <div class="container-tabla-dinamica">
     <h1 class="text-center p-3">Libros</h1>
-    <div class="responsive-button d-grid col-6 p-4 mx-auto"><a class="btn" href="nuevolibro.php">Agregar nuevo Libro</a></div> <!-- modificar href hacia la pag-->
+    <div class="responsive-button d-grid col-6 p-4 mx-auto"><a class="btn btn-success btn-lg" href="nuevolibro.php">Agregar nuevo Libro</a></div> <!-- modificar href hacia la pag-->
     <div class="table-responsive-sm table-hover col-10 mx-auto " id="Tabla-consulta">
         <table class="table table-hover vertical-align: middle; table-fixed">
             <thead class="text-muted">
@@ -46,9 +46,4 @@
         </table>
     </div>
 </div>
-<script src="./assets/js/listalibros.js"></script>
-
-
-
-
 <?php include("views/includes/footer_listalibros.php");?>

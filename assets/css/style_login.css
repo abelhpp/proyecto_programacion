@@ -27,12 +27,12 @@ body {
 }
   
 #login {
-    margin-top: 70px;
+    margin-top: 40px;
+    padding: 15px;
     width: 600px;
-    height: 300px;
+    height: auto;
     box-shadow: 2px 2px 2px 2px #343a40;
-    border-radius: 3px;  
-    background-color: #FFA500;  
+    border-radius: 3px; 
 }
 
 .button{

@@ -15,6 +15,14 @@
                 <label for="password" class="text-dark">Password</label><br>
                 <input type="password" name="password" id="password" class="form-control" required>
             </div>
+            <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6LfpspQoAAAAAItnBw6f-6cMvcCH27spb-VRS6uO">
+
+                </div>
+            </div>
+            
+            
+            
             <div class="form-group button text-center">                                
                 <input type="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Iniciar Sesión" required>
             </div>

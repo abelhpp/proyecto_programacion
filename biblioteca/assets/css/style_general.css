@@ -50,6 +50,13 @@ footer{
     color: white;
 }
 
+.dropdown-item:hover {
+    background-color: #062c5d;
+    color: white;
+}
+
+
+
 /* Cambiar el color de las letras de los elementos del menú desplegable */
 .dropdown-item {
     color: white;

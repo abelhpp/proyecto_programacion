@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         public function createCaptcha() {
             //Recaptcha
             /*
-            $secretkey = "6LfpspQoAAAAAP1K38W_hoO6SUhCf8tQuXtSUt_1";
+            $secretkey = "Clave Privada";
             $respuesta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretkey&response=$this->captcha");
             $respuestaJson = json_decode($respuesta, True);
             //Realiza la lógica de verificación del captcha y manejo de errores aquí

@@ -33,10 +33,7 @@ class Database
         // Puedes registrar el error o manejarlo de otra manera adecuada
         throw $e; // Relanza la excepción para que se maneje en un nivel superior
     }
-<<<<<<< HEAD
 }
-
-=======
     
     //Método para preparar y ejecutar consulta SQL retornando num. row afectadas.(en proceso)
     public function executeAndInform($sql){
@@ -53,7 +50,6 @@ class Database
         }
 
     }
->>>>>>> 7ea9bd5 (se agrega funcion adicional)
 
     public function getError()
     {
@@ -76,7 +72,6 @@ class Database
         }
     }
 
-<<<<<<< HEAD
     public function fetchOneId($sql)
     {
         try {
@@ -92,30 +87,6 @@ class Database
         }
     }
 
-=======
-    //Método para traer todos los resultados.
-
-    public function fetchAll($sql){
-
-        $result = $this->execute($sql);
-        if($result){
-            $datos = array();
-            while($fila = mysqli_fetch_assoc($result)){
-                $datos[]=$fila;
-            }
-            //liberamos espacio de la memoria
-            mysqli_free_result($result);
-
-            //devolvemos los datos
-            return $datos;
-        }else{
-            echo "error al buscar datos". mysqli_connect_error();
-            return null;
-        }
-        
-    }
-    
->>>>>>> ba2507e (se agrega funcion de FetchAll para traer todos los)
     public function __destruct()
     {
         $this->cerrarConexion();

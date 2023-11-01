@@ -35,21 +35,6 @@ class Database
     }
 }
     
-    //Método para preparar y ejecutar consulta SQL retornando num. row afectadas.(en proceso)
-    public function executeAndInform($sql){
-
-        $this->conexion->query($sql);
-        $filas = $this->conexion->affected_rows;
-        if($filas ===true){
-            $inform = "se modificó exitosamente"; 
-            return $inform;
-        }else{
-            $inform = "no se modifico ningun dato";
-            return $inform;
-
-        }
-
-    }
     
     //Método para preparar y ejecutar consulta SQL retornando num. row afectadas.(en proceso)
     public function executeAndInform($sql){

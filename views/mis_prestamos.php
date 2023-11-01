@@ -11,10 +11,9 @@
     <div class="col-12 container-btn-volver">
         <button class="btn btn-secondary" @click="irInicio()">Volver Inicio</button>
     </div>
-
     <div class="row libro-container">
-        <div class="row">
-            <div class="col-md-12 prestamo-cards">
+        <div class="row" style="min-height: 58vh;">
+            <div class="col-md-12 prestamo-cards" v-if="prestamos && prestamos.length > 0">
                 <div class="col-md-3 prestamo-card" v-for="prestamo in prestamos" :key="prestamo.id">
                     <h2>{{ prestamo.nombre_libro }}</h2>
                     <p><strong>№ de Préstamo:</strong> {{ prestamo.id }}</p>
@@ -26,11 +25,15 @@
 
                 </div>
             </div>
+            <div class="col-md-12 prestamo-cards" v-else>
+                <div class="col-md-3 prestamo-card" style="min-height: 49vh;">
+                    <h2>El cliente no tiene prestamos disponibles</h2>
+                </div>
+            </div>
 
         </div>
     </div>
 </div>
-
 
 
 

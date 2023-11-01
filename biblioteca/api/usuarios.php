@@ -44,7 +44,7 @@ switch ($request_method) {
         
         $sql = "INSERT INTO usuarios (dni, nombre, apellido, email, pass, fecha_registro, fotocopia_dni, activado, token, roles_id) 
         VALUES ('$dni', '$nombre', '$apellido', '$email', '$pass', '$fecha_registro', '$fotocopia_dni', '$activado', '$token', '$roles_id')";
-       
+
         if ($conn->query($sql) === TRUE) {
             echo json_encode(array("message" => "Usuario creado correctamente"));
         } else {

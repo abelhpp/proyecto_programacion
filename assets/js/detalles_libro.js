@@ -14,7 +14,8 @@ const app = Vue.createApp({
         async obtenerLibros() {
             try {
                 const APIuno = 1;
-                const response = await fetch(`http://localhost/proyecto_programacion/librosAPI.php?APIs=${APIuno}`);                const data = await response.json();
+                const response = await fetch(`http://localhost/proyecto_programacion/librosAPI.php?APIs=${APIuno}`);
+                const data = await response.json();
                 data.sort((a, b) => new Date(b.fecha_registro) - new Date(a.fecha_registro));
                 this.librosRecientes = data.slice(0, 8); // Obtener los 8 libros más recientes
                 // console.log(this.librosRecientes);

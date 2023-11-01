@@ -2,6 +2,7 @@ const app = Vue.createApp({
     data() {
         return {
             prestamos: [],
+            usuarioId: null,
         };
     },
     methods: {
@@ -11,13 +12,10 @@ const app = Vue.createApp({
                 const data = await response.json();
                 // Aquí puedes manejar los datos de los préstamos obtenidos
                 this.prestamos = data;
-                console.log(data);
-                console.log("hola")
-                console.log(this.prestamos);
             } catch (error) {
                 console.error('Error al obtener los préstamos:', error);
             }
-        },
+        },      
         toggleAutoresMenu() {
             var autoresDropdown = document.getElementById("autores-dropdown");
             autoresDropdown.classList.toggle("show");
@@ -34,7 +32,10 @@ const app = Vue.createApp({
         },
     },
     async mounted() {
-        await this.obtenerPrestamos(1);
+        this.usuarioId = usuarioId;
+        console.log(this.usuarioId);
+        // await this.obtenerPrestamos();
+        await this.obtenerPrestamos(this.usuarioId);
     },
 });
 

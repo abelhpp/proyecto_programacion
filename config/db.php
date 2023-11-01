@@ -50,6 +50,22 @@ class Database
         }
 
     }
+    
+    //Método para preparar y ejecutar consulta SQL retornando num. row afectadas.(en proceso)
+    public function executeAndInform($sql){
+
+        $this->conexion->query($sql);
+        $filas = $this->conexion->affected_rows;
+        if($filas ===true){
+            $inform = "se modificó exitosamente"; 
+            return $inform;
+        }else{
+            $inform = "no se modifico ningun dato";
+            return $inform;
+
+        }
+
+    }
 
     public function getError()
     {
@@ -86,6 +102,29 @@ class Database
             die('Error al obtener un resultado de la consulta SQL: ' . $e->getMessage());
         }
     }
+
+    //Método para traer todos los resultados.
+
+    public function fetchAll($sql){
+
+        $result = $this->execute($sql);
+        if($result){
+            $datos = array();
+            while($fila = mysqli_fetch_assoc($result)){
+                $datos[]=$fila;
+            }
+            //liberamos espacio de la memoria
+            mysqli_free_result($result);
+
+            //devolvemos los datos
+            return $datos;
+        }else{
+            echo "error al buscar datos". mysqli_connect_error();
+            return null;
+        }
+        
+    }
+    
 
     public function __destruct()
     {

@@ -12,7 +12,7 @@
     $title = "Lista de libros";
     $script = '<script src="assets/js/altalibro.js"></script>';
     $generoButton = "";
-    include('views/includes/headerGeneral.php'); 
+    include('views/includes/header_altalibro.php'); 
 ?>
 
 
@@ -73,11 +73,11 @@
                     </div>
                 
                     <button type="submit" class="btn btn-primary mt-2">Guardar Cambios</button>
-                    <a class="btn btn-secondary  mt-2" href="lista.php">Cancelar</a>
+                    <a class="btn btn-secondary  mt-2" href="listaLibros.php">Cancelar</a>
 
                 </form>
             </div>
         </div>
     </div>
 
-<?php include("includes/footer_modificarlibro.php");?>
+<?php include("views/includes/footer_modificarlibro.php");?>

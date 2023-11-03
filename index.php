@@ -1,3 +1,4 @@
+
 <?php 
 //config para errores
 ini_set('display_errors', 1);
@@ -10,13 +11,13 @@ require_once 'controllers/sessions/sessionController.php';
 
 if (isset($_SESSION['roles_id'])) {
     $opcion = (int)$_SESSION["roles_id"]; 
-
+    
     switch ($opcion) {
         case 1:            
             include 'views/inicio.php'; 
             break; 
         case 2:
-            header('Location: biblioteca/lista.php');
+            header('Location: listalibros.php');
             break;
         case 3:
             echo "Usuario tipo 3";
@@ -29,5 +30,6 @@ if (isset($_SESSION['roles_id'])) {
     header('Location: login.php');
     exit;
 }
+
 
 ?>

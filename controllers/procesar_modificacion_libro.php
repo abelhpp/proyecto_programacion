@@ -31,4 +31,5 @@ $conn->close();
     alert("<?php echo $mensaje; ?>");
     window.history.back();
     // LO DEBO REDIRIGIR A LA PAGINA DE LISTAS
+    
 </script>

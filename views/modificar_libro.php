@@ -1,9 +1,3 @@
-
-
-
-
-
-
 <script src="./assets/js/altalibro.js"></script>
 <?php include("includes/header_modificarlibro.php");?>
 

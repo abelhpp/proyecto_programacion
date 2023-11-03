@@ -7,11 +7,12 @@
     require_once 'controllers/sessions/sessionController.php';
 
     //Head y header 
-    $style = 'href="./assets/css/style_inicio.css"';
-    $title = "Lista de libros";
+    $style = 'href="./assets/css/style_altalibro.css"';
+    $title = "Alta Libro";
     $script = '<script src="./assets/js/altalibro.js"></script>';
     $generoButton = "";
-    include('views/includes/headerGeneral.php'); 
+
+    include('views/includes/header_altalibro.php'); 
 ?>
 
 <div class="container mt-5">
@@ -134,4 +135,4 @@
             </div>
         </div>
     </div>
-<?php include("includes/footer_listalibros.php"); ?>
+<?php include("views/includes/footer_altalibro.php"); ?>

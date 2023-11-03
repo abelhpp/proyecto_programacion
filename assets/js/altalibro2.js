@@ -17,7 +17,7 @@ async function obtenerGeneros() {
 
 async function obtenerAutores() {
     try {
-        const APItres = 3;
+        const APItres = 2;
         const response = await fetch(`http://localhost/proyecto_programacion/librosAPI.php?APIs=${APItres}`);
         const data = await response.json();
         if (Array.isArray(data)) {

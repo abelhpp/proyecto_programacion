@@ -1,5 +1,12 @@
+<?php session_start();?>
+<?php
 
-<?php include("views/includes/header_listalibros.php");?>
+//Head y header 
+$style = 'href="./assets/css/style_listalibros.css"';
+$title = "Lista de libros";
+$generoButton = "";
+
+include("views/includes/headerGeneral.php");?>
 <?php 
     include_once 'models/lista-libros-Model.php';
 
@@ -12,7 +19,9 @@
 ?>
 <div class="container-tabla-dinamica">
     <h1 class="text-center p-3">Libros</h1>
-    <div class="responsive-button d-grid col-6 p-4 mx-auto"><a class="btn btn-success btn-lg" href="nuevolibro.php">Agregar nuevo Libro</a></div> <!-- modificar href hacia la pag-->
+
+    <div class="responsive-button d-grid col-6 p-4 mx-auto"><a class="btn btn-success btn-lg" href="altalibro.php">Agregar nuevo Libro</a></div> <!-- modificar href hacia la pag-->
+
     <div class="table-responsive-sm table-hover col-10 mx-auto " id="Tabla-consulta">
         <table class="table table-hover vertical-align: middle; table-fixed">
             <thead class="text-muted">
@@ -36,8 +45,8 @@
                     <td><?php echo $fila["autor"]; ?> </td>
                     <td><?php echo $fila["genero"]; ?> </td>
                     <td><div class="btn-group" role="group" aria-label="Basic example">
-                        <a class="btn btn-primary" href="editar.php?id=<?php echo $fila['id'];?>">Editar</a>
-                        <a class="btn btn-danger" href="dar_de_baja.php?id=<?php echo $fila['id'];?>">Dar de baja</a> <!-- modificar href hacia pagina -->
+                        <a class="btn btn-primary" href="modificar_libro.php?id=<?php echo $fila['id'];?>">Editar</a>
+                        <a class="btn btn-danger" href="baja_libro.php?id=<?php echo $fila['id'];?>">Dar de baja</a> <!-- modificar href hacia pagina -->
                     </td>
 
                 </tr>

@@ -8,9 +8,9 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/style_general.css">
-<?php echo $script;                                                              ?>    
-    <link rel="stylesheet" <?php echo $style;?> >
-    <title><?php echo $title; ?></title>
+    <link rel="stylesheet" href="./assets/css/style_altalibro.css">
+    <script src="./assets/js/altalibro.js"></script>
+    <title>Alta Libro</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
-                    <a class="navbar-brand" href="/proyecto_programacion/inicio.php">Biblioteca</a>
+                    <a class="navbar-brand" href="/proyecto_programacion/index.php">Biblioteca</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>

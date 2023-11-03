@@ -33,7 +33,7 @@
             <textarea class="form-control" id="descripcion" name="descripcion" required></textarea>
         </div>
         <button type="submit" class="btn btn-danger mt-3">Confirmar Baja</button>
-        <a class="btn btn-secondary  mt-3" href="lista.php">Cancelar</a>
+        <a class="btn btn-secondary  mt-3" href="listalibros.php">Cancelar</a>
     </form>
 </div>
 

@@ -16,7 +16,7 @@ confirmar_Modal.addEventListener('shown.bs.modal',event =>{
     let formData = new FormData();
     formData.append('id',id);
 
-    fetch("../controllers/consultarPrestamo.php",{
+    fetch("./controllers/consultarPrestamo.php",{
         method: 'POST',
         body: formData,
 
@@ -49,7 +49,7 @@ Detalles_modal.addEventListener('shown.bs.modal',event =>{
     let formData = new FormData();
     formData.append('id',id);
 
-    fetch("../controllers/consultarDetalles.php",{
+    fetch("./controllers/consultarDetalles.php",{
         method: 'POST',
         body: formData,
 
@@ -82,7 +82,7 @@ BajaModal.addEventListener('shown.bs.modal', event=>{
     formdata.append("id",id);
     
 
-    fetch("../controllers/consultarPrestamo.php",{
+    fetch("./controllers/consultarPrestamo.php",{
         method: 'POST',
         body: formdata
     }).then(response =>{

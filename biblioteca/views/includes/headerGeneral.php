@@ -59,7 +59,7 @@
                                             echo '<li class="dropdown-item"><a class="nav-link" href="activar.php">Registro de Alumnos</a></li>';
                                             echo '<li class="dropdown-item"><a class="nav-link" href="alta.php">Registro de Bibliotecario</a></li>';
                                             echo '<li class="dropdown-item"><a class="nav-link" href="lista.php">Todos los Libros</a></li>';
-                                            echo '<li class="dropdown-item"><a class="nav-link" href="x.php">Reservas de Alumnos</a></li>';
+                                            echo '<li class="dropdown-item"><a class="nav-link" href="listaResUsuarios.php">Reservas de Alumnos</a></li>';
                                         } else{
                                             echo '<li><a class="dropdown-item" href="mis_prestamos.php">Mis Prestamos</a></li>';
                                         } 

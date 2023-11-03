@@ -17,7 +17,7 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
-                    <a class="navbar-brand" href="/proyecto_programacion/inicio.php">Biblioteca</a>
+                    <a class="navbar-brand" href="./lista.php">Biblioteca</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -45,15 +45,14 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    Nombre de Usuario
+                                  
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="userDropdown">
                                     <li><a class="dropdown-item" href="#mi-perfil">Mi Perfil</a></li>
-                                    <li><a class="dropdown-item" href="mis_prestamos.php">Mis Prestamos</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="#cerrar-sesion">Cerrar Sesión</a></li>
+                                    <li><a class="dropdown-item" href="./salir.php">Cerrar Sesión</a></li>
                                 </ul>
                             </li>
                         </ul>

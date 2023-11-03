@@ -1,13 +1,16 @@
+<?php include_once 'views/includes/header_listaResUsuarios.php'; ?>
 
-<?php include("./includes/header_listaResUsuarios.php");?>
 <?php 
-    include_once ("../models/lista_reservas_Model.php");
+    include_once ("models/lista_reservas_Model.php");
 
     $Reservas = new Loans_Model();
 
     $resultado = $Reservas->consultartabla();
     // echo 'consultada la base';
-    echo  json_encode($resultado);
+    // echo  json_encode($resultado);
+    if (empty($resultado)){
+        echo "<h1 style=\"color: blue; font-family: Arial; text-align: center;\">no hay préstamos realizados, ¡buenisimo!</h1>";
+    }
 
 ?>
 <div class="container py-3">
@@ -42,10 +45,10 @@
             <?php } ?>
         </tbody>
     </table>
-    <?php include './Modal_Confirm.php'; ?>
+    <?php include 'views/Modal_Confirm.php'; ?>
 </div>
-<?php include './Modal_Baja.php'; ?>
-<?php include './Modal_Detalles.php'; ?>
+<?php include 'views/Modal_Baja.php'; ?>
+<?php include 'views/Modal_Detalles.php'; ?>
 <script><?php include '../assets/js/reservas.js'; ?></script>
 
-<?php include("./includes/footer_listaResUsuarios.php");?>
+<?php include "views/includes/footer_listaResUsuarios.php";?>

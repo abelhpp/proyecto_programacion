@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 <?php 
 //config para errores
 ini_set('display_errors', 1);
@@ -12,7 +11,7 @@ require_once 'controllers/sessions/sessionController.php';
 
 if (isset($_SESSION['roles_id'])) {
     $opcion = (int)$_SESSION["roles_id"]; 
-
+    
     switch ($opcion) {
         case 1:            
             include 'views/inicio.php'; 
@@ -31,13 +30,6 @@ if (isset($_SESSION['roles_id'])) {
     header('Location: login.php');
     exit;
 }
-=======
-<?php include 'config/init.php'; ?>
-<?php include 'views/home.php'; ?>
->>>>>>> aac8353 (se corrigió direccion de init.php)
-=======
-<?php include 'config/init.php'; ?>
-<?php include 'views/home.php'; ?>
->>>>>>> eab2ab8de8d576f25d27dbc5a3b13c0a036126db
+
 
 ?>

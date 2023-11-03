@@ -3,6 +3,7 @@
 if ($_SERVER["REQUEST_METHOD"] === 'POST') {
     $id = $_POST['id'];
     $Reservas = new Loans_Model();
+    $Reservas->__construct();
     $consulta = $Reservas->consultarDetalle($id);
     echo json_encode($consulta);
 }

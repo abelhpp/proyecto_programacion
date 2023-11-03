@@ -18,7 +18,7 @@ class Loans_Model{
 
     public function consultartabla(){
 
-        $query = "SELECT prestamos.id, prestamos.fecha_prestamo, prestamos.fecha_vencimiento, prestamos.fue_retirado, usuarios.nombre AS nombre, usuarios.apellido AS apellido, usuarios.email, libros.nombre AS NombreLibro FROM prestamos JOIN usuarios ON prestamos.usuarios_id = usuarios.id JOIN libros ON prestamos.libros_id = libros.id";
+        $query = "SELECT prestamos.id, prestamos.fecha_prestamo, prestamos.fecha_vencimiento, prestamos.fue_retirado, usuarios.nombre AS nombre, usuarios.apellido AS apellido, usuarios.email, libros.nombre AS NombreLibro FROM prestamos JOIN usuarios ON prestamos.usuarios_id = usuarios.id JOIN libros ON prestamos.libros_id = libros.id WHERE fue_retirado=0";
 
         $consulta =$this->db->fetchAll($query);
         

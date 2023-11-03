@@ -22,6 +22,7 @@
                     <p><strong>Autor:</strong> {{ prestamo.nombre_autor }}</p>
                     <!-- <p><strong>Retirado:</strong> {{ prestamo.fue_retirado === 1 ? 'Sí' : 'No' }}</p> -->
                     <p><strong>Retirado:</strong> {{ prestamo.fue_retirado === 1 ? 'Sí' : (prestamo.fue_retirado === 0 ? 'No' : 'En espera') }}</p>
+                    <button class="btn btn-secondary" @click="descargarPDF(prestamo.id)">Descargar PDF</button>
 
                 </div>
             </div>

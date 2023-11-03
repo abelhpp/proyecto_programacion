@@ -1,0 +1,23 @@
+/* css para Modal_details.php */
+.col{
+    padding: 0;
+}
+.form-group{
+    width: 340px;
+    border-radius: 15px;
+    padding: 20px 5px;
+    background: rgb(235, 236, 236);
+}
+.form-group label{
+    font-size: 25px;
+}
+.form-group input{
+    width: 300px;
+}
+#botonCerrar{
+    margin-top: 10px;
+}
+/* css para listResUsuarios.php */
+#filatabla{
+    width: 300px;
+}

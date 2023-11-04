@@ -34,17 +34,6 @@ const app = Vue.createApp({
         irMisPrestamos(){
             window.location.href = 'mis_prestamos.php';
         },
-        // async descargarPDF(prestamoId){
-        //     try {
-        //         const response = await fetch('http://localhost/proyecto_programacion/controllers/descargarPDF.php?prestamo_id=' + prestamoId);
-        //         const data = await response.json();
-        //         // Aquí puedes manejar los datos de los préstamos obtenidos
-        //         // this.prestamos = data;
-        //         console.log(data);
-        //     } catch (error) {
-        //         console.error('Error al obtener los préstamos:', error);
-        //     }
-        // }
         async descargarPDF(prestamoId) {
             try {
                 // Obtener datos del servidor

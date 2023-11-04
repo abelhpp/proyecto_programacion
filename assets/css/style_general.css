@@ -75,3 +75,12 @@ footer{
     justify-content: center;
     align-items: center;
 }
+
+
+/* .container-btn-volver{
+    width: 100%;
+    background-color: red;
+} */
+.volver-inicio{
+    width: 100% !important;
+}

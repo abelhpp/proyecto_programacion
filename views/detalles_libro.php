@@ -28,8 +28,8 @@
     </div>
 </div>
 <div class="container">
-    <div class="col-12 container-btn-volver">
-        <button class="btn btn-secondary" @click="irInicio()">Volver Inicio</button>
+    <div class="col-lg-2 col-md-3 col-sm-4 container-btn-volver">
+        <button class="btn btn-secondary volver-inicio" @click="irInicio()">Volver Inicio</button>
     </div>
 
     <div class="row libro-container">

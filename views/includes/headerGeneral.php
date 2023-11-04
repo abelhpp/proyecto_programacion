@@ -55,7 +55,7 @@
                                     <?php
                                         // Botones específicos para Bibliotecarios y Superusuarios
                                         if ($rol == 2 || $rol == 3) {
-                                            echo '<li class="dropdown-item"><a class="nav-link" href="activar.php">Registro de Alumnos</a></li>';
+                                            echo '<li class="dropdown-item"><a class="nav-link" href="biblioteca/activar.php">Registro de Alumnos</a></li>';
                                             echo '<li class="dropdown-item"><a class="nav-link" href="alta.php">Registro de Bibliotecario</a></li>';
                                             echo '<li class="dropdown-item"><a class="nav-link" href="lista.php">Todos los Libros</a></li>';
                                             echo '<li class="dropdown-item"><a class="nav-link" href="listaResUsuarios.php">Reservas de Alumnos</a></li>';

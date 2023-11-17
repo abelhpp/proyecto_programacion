@@ -1,0 +1,1 @@
+<button class="btn btn-primary btn-reservar" @click="reservar(libro.id, <?php echo $_SESSION['id']; ?>)" :disabled="parseInt(libro.cantidad) === 0 || prestar == false">Reservar</button>

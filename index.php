@@ -1,35 +1,46 @@
-
 <?php 
 //config para errores
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-//Control se session
-require_once 'controllers/sessions/sessionController.php';
 
 
-if (isset($_SESSION['roles_id'])) {
-    $opcion = (int)$_SESSION["roles_id"]; 
-    
-    switch ($opcion) {
-        case 1:            
-            include 'views/inicio.php'; 
-            break; 
-        case 2:
-            header('Location: listalibros.php');
-            break;
-        case 3:
-            echo "Usuario tipo 3";
-            break;
-        default:
-            header('Location: login.php');
-            exit;
-    }
+//Obtener el atributo path del objeto url server
+$uri = $_SERVER['REQUEST_URI'];
+$url = parse_url($uri);
+//Esto es por la rais "HTDOCS" de XAMPP.
+$path = trim($url['path'], '/');
+$parts = explode('/', $path);
+$loginSegment = end($parts);
+
+//Session
+session_start();
+
+
+require_once('controllers/sessions/session.php');
+
+
+
+//Routers
+$routes = [
+    'login'  => 'views/login.php',
+    'inicio' => 'views/inicio.php',
+    'cerrada'=> 'views/cerrada.php',
+    'time'=> 'views/time.php',
+    'salir' => 'views/salir.php',
+];
+
+
+
+if(array_key_exists($loginSegment, $routes)) {  
+    require_once $routes[$loginSegment];
 }else{
-    header('Location: login.php');
-    exit;
+    http_response_code(404);
+    require_once 'views/404.php';
+    die();
 }
 
 
 ?>
+

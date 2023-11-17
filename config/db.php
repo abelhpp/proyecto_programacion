@@ -1,16 +1,24 @@
 
 <?php
+require_once 'models/variablesModel.php';
 class Database
 {
-    private $host = 'localhost';
-    private $usuario = 'root';
-    private $contrasena = '';
-    private $nombreBaseDatos = 'biblioteca';
+    private $variables;
+    private $host;
+    private $usuario;
+    private $contrasena;
+    private $nombreBaseDatos;
     private $conexion;
 
     public function __construct()
     {
+        $this->variables = new VariablesModel();
+        $this->host = $this->variables->getHost();
+        $this->usuario = $this->variables->getUsuario();
+        $this->contrasena = $this->variables->getContrasena();
+        $this->nombreBaseDatos = $this->variables->getNombre();
         try {
+            
             $this->conexion = new mysqli($this->host, $this->usuario, $this->contrasena, $this->nombreBaseDatos);
             if ($this->conexion->connect_error) {
                 die('Error de conexión a la base de datos: ' . $this->conexion->connect_error);

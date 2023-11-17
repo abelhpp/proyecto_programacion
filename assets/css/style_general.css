@@ -20,6 +20,16 @@ header, footer{
     color: #ffffff;
 }
 
+header nav div a{
+    height: 100%;
+}
+
+a img{
+    height: 60px;
+}
+
+
+
 footer{
     margin-top: 2%;
 }

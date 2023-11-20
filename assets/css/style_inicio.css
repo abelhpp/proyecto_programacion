@@ -54,6 +54,10 @@ body{
 }
 
 
+.alto{
+    height: calc(100vh - 285px);
+}
+
 
 #redes, #contacto{
     display: flex;

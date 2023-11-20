@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error_message = "El correo ingresado, ya se encuentra registrado en nuestra.";
     }else{
     //envios
-    $error_message = "Registrado con exito, en las proximas 48hs su cuenta sera validada";
+    $emal_validar = "Registrado con exito, en las proximas 48hs su cuenta sera validada";
     $infoDb = $usuarioModel->registrarNuevoUsuario($email, $name, $apellido, $dni, $password, $imagenBinaria);
     }
     

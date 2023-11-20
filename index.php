@@ -29,6 +29,8 @@ $routes = [
     'cerrada'=> 'views/cerrada.php',
     'time'=> 'views/time.php',
     'salir' => 'views/salir.php',
+    'registrarse' => 'views/registrarse.php',
+    'correo' => 'views/correo_verificacion.php',
 ];
 
 

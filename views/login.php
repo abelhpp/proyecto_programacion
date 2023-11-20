@@ -30,7 +30,7 @@ include 'views/includes/header_login.php';
 
         </form>
                                         
-            <a a class="link-offset-2 link-underline link-underline-opacity-10" href="registrarse.php">Registrarse</a>
+            <a a class="link-offset-2 link-underline link-underline-opacity-10" href="registrarse">Registrarse</a>
         
         <?php            
             if (isset($error_message)) {
@@ -39,5 +39,4 @@ include 'views/includes/header_login.php';
         ?>
     </div>
 </div>
-
 <?php include 'views/includes/footer_login.php'; ?>

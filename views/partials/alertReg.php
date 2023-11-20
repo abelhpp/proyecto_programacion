@@ -8,7 +8,7 @@
     <p><?php echo $error_message; ?></p>
   </div>
   <div class="modal-footer">
-    <a href="login.php" class="btn btn-primary">Aceptar</a>
+    <a href="registrarse" class="btn btn-primary">Aceptar</a>
   </div>
 </div>
 <div class="modal-backdrop fade show" id="modal-backdrop"></div>

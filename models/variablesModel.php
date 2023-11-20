@@ -1,4 +1,6 @@
 <?php
+
+
 class VariablesModel {
     
     private $host;
@@ -6,6 +8,9 @@ class VariablesModel {
     private $contrasena;
     private $nombre;
     private $secretKey;
+    private $emailPass;
+    private $emailHost;
+    private $emailName;
 
     // Constructor que obtiene la SECRET_KEY al crear la instancia
     public function __construct() {
@@ -22,8 +27,22 @@ class VariablesModel {
         $this->usuario = $_ENV['DB_USUARIO'];
         $this->contrasena = $_ENV['DB_CONTRASENA'];
         $this->nombre = $_ENV['DB_NOMBREBASEDATOS'];
-
+        $this->emailPass = $_ENV['EMAIL_PASS'];
+        $this->emailHost = $_ENV['EMAIL_HOST'];
+        $this->emailName = $_ENV['EMAIL_NAME'];
     }
+
+    public function getEmailName(){
+        return $this->emailName;
+    }
+
+    public function getEmailHost(){
+        return $this->emailHost;
+    }
+    public function getEmailPass(){
+        return $this->emailPass;
+    }
+
     public function getHost(){
         return $this->host;
     }

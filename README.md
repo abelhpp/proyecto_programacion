@@ -9,3 +9,5 @@ Listen 80
 Cambio a 
 #Listen 0.0.0.0:80
 Listen 80
+#host
+hostname -I

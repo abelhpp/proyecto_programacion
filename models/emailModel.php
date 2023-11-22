@@ -43,12 +43,13 @@ class EmailModel
 
     public function enviarCorreoVerificacion()
     {
+
         $codigoVerificacion = $this->generarCodigoVerificacion();
 
         try {
             $this->mailer->addAddress($this->correoEnvio);
             $this->mailer->isHTML(true);
-            $this->mailer->Subject = 'Correo de Verificación';
+            $this->mailer->Subject = 'Correo de Verificacion';
             
             // Leer el contenido de mensaje_verificacion.html
             $htmlContent = file_get_contents(__DIR__ . '/../views/mensaje.php');

@@ -17,6 +17,9 @@
     <!-- Tu propio CSS personalizado -->
     <link rel="stylesheet" href="assets/css/style_general.css">
     <link rel="stylesheet" href="assets/css/style_login.css">
+    <link rel="stylesheet" href="assets/css/style_reg.css">
+
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 <body>

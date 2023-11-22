@@ -1,6 +1,5 @@
 <?php
 
-
 // Definir rutas y URLs base
 define('BASE_URL', 'http://localhost/biblioteca/'); // Reemplaza con la URL de tu aplicación
 define('BASE_PATH', __DIR__);

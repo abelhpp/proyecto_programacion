@@ -15,8 +15,6 @@ class UsuarioModel
 
     
 
-
-
     public function __construct()
     {
         $this->db = new Database();
@@ -75,6 +73,20 @@ class UsuarioModel
     }
 
 
+    //Verificar correo
+    public function verificarCorreo($email){
+        // Consulta SQL para verificar si el email existe en la tabla usuarios
+        $query = "SELECT email FROM usuarios WHERE email = '$email';";
+        $result = $this->db->execute($query);
+    
+        // Verificar si se encontró un registro
+        if ($result->num_rows > 0) {   
+            return true;
+        }
+        return false;
+    }
+
+
     //Token crear
     public function verificarToken($id, $token){
         
@@ -84,24 +96,13 @@ class UsuarioModel
         $tokenDB = $this->db->fetchOne($query);
         
         if ($tokenDB['token'] === $token){
-            return false;
+            return true;
         }
-
-        return true;
-        
+        return false;
     }
 
 
 
-
-
-    
-
-
-
-
-
-    
 
     // comprobrar clave
     public function existsEmail($usuario){
@@ -142,6 +143,28 @@ class UsuarioModel
     
         $_SESSION["token"] = $token;
     }
+
+    //Cierra session por tiempo
+    public function sessionTime(){
+        // Calcular el tiempo transcurrido desde el último acceso
+        $tiempo_transcurrido = time() - $_SESSION['ultimo_acceso'];
+
+        // Establecer el tiempo máximo permitido (30 minutos)
+        $tiempo_maximo = 30 * 60;
+
+        // Verificar si ha pasado el tiempo máximo permitido
+        if ($tiempo_transcurrido > $tiempo_maximo) {
+            // Redirigir a login.php y destruir la sesión
+            return true;
+        } else {
+            // Si no ha pasado el tiempo máximo, establecer un nuevo 'ultimo_acceso'
+            $_SESSION['ultimo_acceso'] = time();
+            return false;
+        }
+    }
+
+
+
 
 
     // Método para cambiar la contraseña de un usuario

@@ -36,7 +36,7 @@ include 'views/includes/header_login.php';
                 <input class="form-control" type="file" id="formFile" name="dni_front" required>
             </div>
             <div class="form-group button text-center">                                
-                <input type="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="REGISTRARSE" required>
+                <input type="submit" name="submit" class="btn btn-success btn-lg btn-block" value="REGISTRARSE" required>
             </div>
         </form>
 
@@ -49,7 +49,7 @@ include 'views/includes/header_login.php';
         include 'views/partials/alertReg.php';
     }
     if (isset($emal_validar)) {
-        include 'views/partials/alertReg.php';
+        include 'views/partials/alertRegOK.php';
     }
 ?>
     

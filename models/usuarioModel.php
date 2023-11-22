@@ -22,11 +22,10 @@ class UsuarioModel
 
     // Método para registrar un nuevo usuario en la base de datos
 
-    public function registrarNuevoUsuario( $email, $name, $apellido, $dni, $password, $imagenBinaria)
+    public function registrarNuevoUsuario( $email, $name, $apellido, $dni, $password, $imagenBinaria, $token)
     {
-        
         //Activado 0   roles 1    token 0
-        $activado = 0; $roles_id = 1; $token = '0';
+        $activado = 0; $roles_id = 1; 
         
         $fecha_registro = date("Y-m-d");
 
@@ -44,9 +43,31 @@ class UsuarioModel
         return true;
     }
 
-    //Token crear
-    public function tokenCreate($id, $token){
+    //Codigo verificacion
+    public function vrificacionNuevoUsuario( $email, $name, $apellido, $dni, $password, $imagenBinaria, $token)
+    {
         
+        //Activado 0   roles 1    token 0
+        $activado = 0; $roles_id = 1;
+        
+        $fecha_registro = date("Y-m-d");
+
+        $hashPass = password_hash($password, PASSWORD_DEFAULT);
+
+        // Consulta SQL con valores incrustados
+        $query = "INSERT INTO usuarios (nombre, apellido, email, contraseña, fecha_registro, fotocopia_dni, dni, activado, roles_id, token) 
+        VALUES('$name', '$apellido', '$email', '$hashPass', '$fecha_registro', '$imagenBinaria', $dni, $activado, $roles_id, $token)";
+        
+        $insert = $this->db->execute($query);
+        if (!$insert) {
+            echo "Error en enviar Modelo";
+        }
+
+        return true;
+    }
+
+    //Token crear
+    public function tokenCreate($id, $token){    
         // Consulta SQL con valores incrustados
         $query = "UPDATE usuarios SET token='$token' WHERE id=$id;";
 
@@ -58,6 +79,21 @@ class UsuarioModel
         return true;
     }
 
+    public function verificar($token){
+        // Consulta SQL para verificar si el email existe en la tabla usuarios
+        $query = "SELECT token, id FROM usuarios WHERE token = '$token';";
+        $result = $this->db->execute($query);
+    
+        // Verificar si se encontró un registro
+        if ($result->num_rows > 0) {   
+            $row = $result->fetch_assoc();
+            $id = $row['id'];
+            $query2 = "UPDATE usuarios SET token='0', activado=1 WHERE id=$id;";
+            $this->db->execute($query2);
+            return true;
+        }
+        return false;
+    }
 
     //Verificar email en la db
     public function verificaEmail($email){
@@ -85,6 +121,22 @@ class UsuarioModel
             return true;
         }
         return false;
+    }
+
+
+
+
+    public function verificarEmail($token){
+        // Consulta SQL con valores incrustados
+        $query = "SELECT token FROM usuarios WHERE token=$token;";
+
+        $row = $this->db->fetchOne($query);
+        
+        if ($row['count'] > 0){
+            return true;
+        }
+        return false;
+
     }
 
 

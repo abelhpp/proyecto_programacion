@@ -1,12 +1,4 @@
 
-<?php
-
-
-?>
-
-
-
-
 <!-- Es el titilo del html -->
 <?php $style = 'href="./assets/css/style_inicio.css"'; ?>
 <?php $title = "Inicio para socios"?>

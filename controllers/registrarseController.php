@@ -4,6 +4,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //Importo model
     require_once 'models/usuarioModel.php';
+    require_once 'models/emailModel.php';
     $usuarioModel = new UsuarioModel();
     
 
@@ -29,13 +30,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error_message = "El correo ingresado, ya se encuentra registrado en nuestra.";
     }else{
     //envios
-    $emal_validar = "Registrado con exito, en las proximas 48hs su cuenta sera validada";
-    $infoDb = $usuarioModel->registrarNuevoUsuario($email, $name, $apellido, $dni, $password, $imagenBinaria);
+    $correoController = new emailModel($email);
+    $tokenVerificacion = $correoController->enviarCorreoVerificacion();
+    
+    $emal_validar = "Registrado con exito, se ha enviado un codigo de verifacación al correo ingresado";
+    $infoDb = $usuarioModel->registrarNuevoUsuario($email, $name, $apellido, $dni, $password, $imagenBinaria, $tokenVerificacion);
     }
     
 
     //envios
     //$infoDb = $usuarioModel->registrarNuevoUsuario($email, $name, $apellido, $dni, $password, $imagenBinaria);
-    
 }
 ?>

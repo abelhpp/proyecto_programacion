@@ -25,7 +25,7 @@ include 'views/includes/header_login.php';
                 </div>
             </div>
             <div class="form-group button text-center">                                
-                <input type="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Iniciar Sesión" required>
+                <input type="submit" name="submit" class="btn btn-success btn-lg btn-block" value="Iniciar Sesión" required>
             </div>
 
         </form>
